@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 230 25% 10%;
+    --foreground: 220 20% 92%;
+    --card: 230 22% 14%;
+    --card-foreground: 220 20% 92%;
+    --popover: 230 22% 14%;
+    --popover-foreground: 220 20% 92%;
+    --primary: 262 80% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 230 18% 18%;
+    --secondary-foreground: 220 15% 75%;
+    --muted: 230 18% 18%;
+    --muted-foreground: 225 12% 55%;
+    --accent: 262 80% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 230 18% 22%;
+    --input: 230 18% 22%;
+    --ring: 262 80% 60%;
+    --chart-1: 262 80% 60%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 340 75% 55%;
+    --chart-5: 200 70% 50%;
+    --radius: 0.75rem;
+    --sidebar-background: 230 25% 8%;
+    --sidebar-foreground: 220 20% 92%;
+    --sidebar-primary: 262 80% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 22% 16%;
+    --sidebar-accent-foreground: 220 20% 92%;
+    --sidebar-border: 230 18% 20%;
+    --sidebar-ring: 262 80% 60%;
+    --glow: 262 80% 60%;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
