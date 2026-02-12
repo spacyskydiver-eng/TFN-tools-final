@@ -159,7 +159,7 @@ export const economyTree: TechNode[] = [
     icon: '/tech/wheel.png',
     x: START_X + 6 * COL,
     y: 0.5 * ROW,
-    parents: [''],
+    parents: ['handcart'],
   },
   {
     id: 'jewelry',

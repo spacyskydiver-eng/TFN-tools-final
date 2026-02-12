@@ -5,6 +5,8 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/theme-context";
 import { AuthProvider } from "@/lib/auth-context";
+import { EventProvider } from '@/lib/event-context'
+
 
 const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const _jetbrainsMono = JetBrains_Mono({
@@ -29,10 +31,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">
-        <AuthProvider>
-          <ThemeProvider>{children}</ThemeProvider>
-        </AuthProvider>
+      <body className="font-sans antialiased overflow-x-hidden">
+<AuthProvider>
+  <ThemeProvider>
+    <EventProvider>
+      {children}
+    </EventProvider>
+  </ThemeProvider>
+</AuthProvider>
+
       </body>
     </html>
   );

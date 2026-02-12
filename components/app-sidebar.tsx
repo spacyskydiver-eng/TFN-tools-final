@@ -17,6 +17,8 @@ import {
   LogIn,
   LogOut,
   Shield,
+  CrosshairIcon,
+  Crown,
   Map,
 } from "lucide-react";
 function UserFooter({ collapsed }: { collapsed: boolean }) {
@@ -82,6 +84,8 @@ interface AppSidebarProps {
 const navItems = [
   { id: "home", label: "Home", icon: Home },
   { id: "calendar", label: "Calendar", icon: CalendarDays },
+  { id: "kvk", label: "KvK Tracker", icon: CrosshairIcon },
+  { id: "commander", label: "Commander Prep", icon: Crown },
   { id: "guides", label: "Guides", icon: BookOpen },
   { id: "general-tools", label: "General Tools", icon: Wrench },
   { id: "accounts", label: "Accounts", icon: Users },

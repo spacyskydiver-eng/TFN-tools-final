@@ -495,11 +495,11 @@ export function AccountsContent() {
   /* ---------- get current tree nodes based on activeTree ---------- */
   const nodes = activeTree === 'economy' ? economyTree : militaryTree
 
-  return (
-    <div className="space-y-6">
+return (
+  <div className="space-y-6 min-w-0 max-w-full overflow-x-hidden">
+
       {/* ACCOUNT LIST */}
-      <Card className="border-border bg-card">
-        <CardHeader>
+      <Card className="border-border bg-card min-w-0 max-w-full overflow-hidden">        <CardHeader>
           <CardTitle className="text-foreground">Your Accounts</CardTitle>
         </CardHeader>
 
@@ -658,40 +658,45 @@ export function AccountsContent() {
               <CardTitle className="text-foreground">Technology</CardTitle>
             </CardHeader>
 
-            <CardContent className="space-y-3">
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setActiveTree('economy')}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    activeTree === 'economy'
-                      ? 'bg-primary/20 text-primary border border-primary/30'
-                      : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'
-                  }`}
-                >
-                  Economy
-                </button>
+            <CardContent className="space-y-3 w-full max-w-full min-w-0 overflow-hidden">
+<div className="flex gap-2">
+  <button
+    onClick={() => setActiveTree('economy')}
+    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+      activeTree === 'economy'
+        ? 'bg-primary/20 text-primary border border-primary/30'
+        : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'
+    }`}
+  >
+    Economy
+  </button>
 
-                <button
-                  onClick={() => setActiveTree('military')}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    activeTree === 'military'
-                      ? 'bg-destructive/20 text-destructive border border-destructive/30'
-                      : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'
-                  }`}
-                >
-                  Military
-                </button>
-              </div>
+  <button
+    onClick={() => setActiveTree('military')}
+    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+      activeTree === 'military'
+        ? 'bg-destructive/20 text-destructive border border-destructive/30'
+        : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'
+    }`}
+  >
+    Military
+  </button>
+</div>
 
-              <TechTree
-                title=""
-                nodes={nodes}
-                current={editing.techLevels}
-                onCurrentChange={data => updateTech(data)}
-                editingCurrent={true}
-                goals={editing.techLevels}
-                onGoalsChange={data => updateTech(data)}
-              />
+{/* IMPORTANT: TechTree goes BELOW the buttons, not inside the flex row */}
+<div className="w-full max-w-full min-w-0 overflow-hidden">
+  <TechTree
+    title=""
+    nodes={nodes}
+    current={editing.techLevels}
+    onCurrentChange={data => updateTech(data)}
+    editingCurrent={true}
+    goals={editing.techLevels}
+    onGoalsChange={data => updateTech(data)}
+  />
+</div>
+
+
             </CardContent>
           </Card>
 

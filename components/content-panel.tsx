@@ -11,7 +11,8 @@ import {
   Calculator,
   TrendingUp,
   Home,
-  Map,
+  CrosshairIcon,
+  Crown,
 } from "lucide-react";
 
 import { AccountsContent } from "@/components/accounts-content";
@@ -22,7 +23,8 @@ import { GuidesContent } from "@/components/guides-content";
 import { CalendarContent } from "@/components/calendar-content";
 import { SettingsContent } from "@/components/settings-content";
 import { HomeContent } from "@/components/home-content";
-import { TerritoryPlannerContent } from "@/components/territory-planner-content";
+import { KvkContent } from "@/components/kvk-content";
+import { CommanderContent } from "@/components/commander-content";
 
 const tabMeta: Record<string, { label: string; description: string; icon: React.ElementType }> = {
   home: {
@@ -34,6 +36,16 @@ const tabMeta: Record<string, { label: string; description: string; icon: React.
     label: "Calendar",
     description: "Track events, Mightiest Governor, and KvK schedules",
     icon: CalendarDays,
+  },
+  kvk: {
+    label: "KvK Tracker",
+    description: "Plan KvK runs, calculate honor points, and track timelines",
+    icon: CrosshairIcon,
+  },
+  commander: {
+    label: "Commander Prep",
+    description: "Plan commander upgrades, gold head income, and wheel of fortune spending",
+    icon: Crown,
   },
   guides: {
     label: "Guides",
@@ -59,11 +71,6 @@ const tabMeta: Record<string, { label: string; description: string; icon: React.
     label: "Progression Plans",
     description: "Plan your growth from day one",
     icon: TrendingUp,
-  },
-  "territory-planner": {
-    label: "Territory Planner",
-    description: "Plan alliance expansion and territory placement",
-    icon: Map,
   },
   settings: {
     label: "Settings",
@@ -110,8 +117,10 @@ export function ContentPanel({ activeTab, onTabChange }: ContentPanelProps) {
           <GuidesContent />
         ) : activeTab === "calendar" ? (
           <CalendarContent />
-        ) : activeTab === "territory-planner" ? (
-          <TerritoryPlannerContent />
+        ) : activeTab === "kvk" ? (
+          <KvkContent />
+        ) : activeTab === "commander" ? (
+          <CommanderContent />
         ) : activeTab === "settings" ? (
           <SettingsContent />
         ) : (
@@ -121,5 +130,4 @@ export function ContentPanel({ activeTab, onTabChange }: ContentPanelProps) {
     </div>
   );
 }
-
 
